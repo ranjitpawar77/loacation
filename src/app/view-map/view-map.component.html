@@ -1,0 +1,33 @@
+
+<div>
+  <!-- <h2>My Map</h2> -->
+  <nav class="navbar">
+    <button id="currentLocationButton" (click)="getCurrentLocation()">Current Location</button>
+    <button (click)="openDialog()">Add Location</button>
+    <select id="locationSelect" style="height: 4vw; color: red;">
+      <option value="">Select a location</option>
+      <option *ngFor="let item of locations" [value]="item.name">{{ item.name }}</option>
+    </select>
+    <select style="height: 4vw; color: red;" id="zoomSelect"  [(ngModel)]="selectedZoomLevel" (change)="onZoomLevelChange(selectedZoomLevel)" >
+      <option value="5">Zoom 5</option>
+      <option value="10">Zoom 10</option>
+      <option value="13">Zoom 13</option> <!-- Set the default zoom level to 13 -->
+      <option value="15">Zoom 15</option>
+      <option value="20">Zoom 20</option>
+    </select>
+    </nav>
+  <!--   
+  <div style="height: 4vw; color: red;">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search for a location" (input)="searchLocation()">
+    <button (click)="searchLocation()">Search</button>
+    <div id="map" class="map"></div>
+    <div class="search-results">
+      <ul>
+        <li *ngFor="let result of searchResults">{{ result.name }}</li>
+      </ul>
+    </div>
+  </div>
+   -->
+  <div id="map" class="map"></div>
+</div>
+
